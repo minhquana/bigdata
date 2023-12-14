@@ -1,0 +1,14 @@
+pip install streamlit
+!pip install pyngrok
+with open('streamlit_app.py', 'w') as f:
+    f.write("""
+import streamlit as st
+
+def main():
+    st.title("Hello Streamlit in Colab!")
+
+if __name__ == '__main__':
+    main()
+    """)
+from pyngrok import ngrok
+!streamlit run streamlit_app.py & 
