@@ -1,0 +1,32 @@
+pip install airflow
+import airflow
+
+print(airflow.__version__)
+
+!airflow db init
+
+!airflow users create \
+    --username admin \
+    --firstname your_first_name \
+    --lastname your_last_name \
+    --role Admin \
+    --email your_email@example.com
+
+!airflow webserver --port 8080
+!ps aux | grep 'airflow webserver'
+!pgrep -af "airflow webserver"  # Kiểm tra web server daemon
+!pgrep -af "airflow scheduler"  # Kiểm tra scheduler daemon
+!airflow scheduler
+!apt-get install -y tmux
+!tmux new -d -s airflow-scheduler "airflow scheduler"
+!apt-get install -y tmux
+!tmux new -d -s airflow-scheduler "airflow scheduler"
+import time
+from IPython.display import IFrame
+
+# Wait a few seconds for the web server to start
+time.sleep(5)
+
+# Display the Airflow web interface within the Colab notebook
+IFrame(src="http://localhost:8080", width="100%", height="600px")
+!airflow scheduler
